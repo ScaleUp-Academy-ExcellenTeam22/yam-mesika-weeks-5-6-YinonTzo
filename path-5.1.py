@@ -1,11 +1,33 @@
+import os
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+"""
+This module implements function to
+find files are start with "deep" in some file
+
+for more explanations about listdir
+https://www.tutorialspoint.com/python/os_listdir.htm
+"""
 
 
-# Press the green button in the gutter to run the script.
+def open_path(path_name):
+    """
+    :param path_name:
+    :return:list with all dirs inside @path_name
+    """
+    return os.listdir(path_name)
+
+
+def find_names_startswith_deep(dirs_name):
+    """
+    :param dirs_name: list with dirs name
+    :return: files are start with "deep"
+    """
+    return [file for file in dirs_name if file.startswith("deep")]
+
+
 if __name__ == '__main__':
-    print_hi('path')
+    path = """C:\\Users\\tzomi\\source"""
+    dirs = open_path(path)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    deeps = find_names_startswith_deep(dirs)
+    print(deeps)
