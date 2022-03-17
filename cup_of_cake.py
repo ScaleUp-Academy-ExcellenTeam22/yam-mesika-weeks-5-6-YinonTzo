@@ -1,13 +1,22 @@
+import functools
 
 
 def get_recipe_price(prices, optionals=[], **ingredients):
-    total = 0
+    """
 
-    for i in ingredients.items():
-        if i[0] not in optionals:
-            total += (float(i[1]) / 100) * prices[i[0]]
-    print(total)
+    :param prices: dictionary of prices and products
+    :param optionals: optional ingredients to canceling
+    :param ingredients: to pick up
+    :return: total sum of products
+    """
+    total = 0
+    PRICE = 1
+    PRODUCT = 0
+    for product in ingredients.items():
+        if product[0] not in optionals:
+            total += (float(product[PRICE]) / 100) * prices[product[PRODUCT]]
+    return total
 
 
 if __name__ == '__main__':
-    get_recipe_price({'chocolate': 18, 'milk': 8}, optionals=['milk'], chocolate=300, milk=100)
+    print(get_recipe_price({}))
