@@ -1,16 +1,21 @@
-# This is a sample Python script.
+def join(*lists: list, sep='-'):
+    """
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    :param lists: list of lists
+    :param sep: seperator
+    :return: new list with combination of lists with seperator between each
+    two list
+    """
+    if not lists:
+        return None
+
+    ret = []
+    for li in lists:
+        ret += li
+        ret += sep
+
+    return ret[:-1:]
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    print(join([1, 2], [8], [9, 5, 6], sep='@'))
