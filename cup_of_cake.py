@@ -1,9 +1,9 @@
 def get_recipe_price(prices: dict, optionals: list = None, **ingredients: int) -> float:
     """
-    :param prices: dictionary of prices and products
-    :param optionals: optional list ingredients to canceling
-    :param ingredients: to pick up
-    :return: total sum of products
+    :param prices: Dictionary of prices and products.
+    :param optionals: Optional list ingredients to canceling.
+    :param ingredients: To pick up.
+    :return: Total sum of products.
     """
     if optionals is None:
         optionals = []
